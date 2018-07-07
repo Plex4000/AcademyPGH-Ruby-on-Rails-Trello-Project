@@ -1,0 +1,34 @@
+<div class="board" class="container">
+<h1><%= @board.title %></h1>
+
+  <ul class="list-container">
+    <% @board.lists.each do |list| %>
+     <li class="list">
+        <h3 class="list-title"><%= list.title %></h3>
+        <% list.cards.each do |card| %>
+          <div class="card-title" draggable="true"><%= card.title %></div>
+        <% end %> 
+
+        
+          <div>
+            <%= form_for(@new_card) do |f| %>
+              <p><%= f.text_field :title, placeholder: "title"%></p>
+              <%= f.submit "Add a card"%>
+            <% end %>
+          </div>
+      <% end %>
+
+    </li>
+    </ul>
+        <div>
+          <%= form_for(@new_list) do |f| %>
+            <p><%= f.text_field :title, placeholder: "title", class: "form-control" %></p>
+            <%= f.hidden_field :board_id, value: @board.id %>
+            <%= f.submit "Create a list", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+
+</div>
+
+</div>
