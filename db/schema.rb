@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_022153) do
 
   create_table "cards", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "position", null: false
+    t.integer "position"
     t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_022153) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.integer "position"
     t.integer "board_id"
     t.datetime "created_at", null: false
