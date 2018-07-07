@@ -15,7 +15,7 @@ class CardsController < ApplicationController
 	end
 
 	def create
-        @list = List.find_by(id: params[:list_id])
+        @list = List.find_by(params[:card][:list_id])
 		@card = @list.cards.build(card_params)
 		if @card.save
 			redirect_to @list.board
@@ -42,6 +42,6 @@ class CardsController < ApplicationController
 private
 
 	def card_params
-  		params.require(:card).permit(:title)
+  		params.require(:card).permit(:title, :position)
 	end
 end
