@@ -12,24 +12,24 @@
         
           <div>
             <%= form_for(@new_card) do |f| %>
-              <p><%= f.text_field :title, placeholder: "title"%></p>
-              <%= f.hidden_field :list_id, value: @new_list.id %>
+              <p><%= f.text_field :title, placeholder: "Card title"%></p>
+              <%= f.hidden_field :list_id, value: list.id %>
               <%= f.submit "Add a card"%>
             <% end %>
           </div>
       <% end %>
 
     </li>
-    </ul>
+    <li>
         <div>
           <%= form_for(@new_list) do |f| %>
-            <p><%= f.text_field :title, placeholder: "title", class: "form-control" %></p>
+            <p><%= f.text_field :title, placeholder: "List title", class: "form-control" %></p>
             <%= f.hidden_field :board_id, value: @board.id %>
             <%= f.submit "Create a list", class: "btn btn-primary" %>
           <% end %>
         </div>
-
-
+    </li>
+        </ul>
 </div>
 
 </div>

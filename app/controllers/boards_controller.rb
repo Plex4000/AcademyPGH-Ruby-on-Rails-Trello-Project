@@ -36,7 +36,7 @@ class BoardsController < ApplicationController
     def update
 		@board = Board.find_by(id: params[:id])
     	if @board.update(board_params)
-      		redirect_to @board
+      		redirect_to boards_index_path
     	else
       		render 'edit'
     	end
